@@ -1,0 +1,116 @@
+{
+  "_comment_teamspeak": "سروری که کلاینت بات به آن وصل می‌شود. بات مثل یک کاربر عادی جوین می‌دهد و برای همه دیده می‌شود.",
+  "teamspeak": {
+    "host": "5.57.39.100",
+    "serverport": 11555,
+    "nickname": "Sun Bot",
+    "serverPassword": "",
+    "defaultChannelId": 0,
+    "autoConnect": true
+  },
+
+  "_comment_clientquery": "اتصال به پلاگین ClientQuery کلاینت تیم‌اسپیک. apiKey خالی یعنی خودکار از clientquery.ini خوانده شود.",
+  "clientquery": {
+    "host": "127.0.0.1",
+    "port": 25639,
+    "apiKey": "",
+    "apiKeyFile": "",
+    "maxDbSearch": 500
+  },
+
+  "_comment_commands": "دستورات چت. هر دستور می‌تواند چند نام داشته باشد و نام می‌تواند فاصله داشته باشد (مثل \"cmt 1\"). طولانی‌ترین نام اول امتحان می‌شود.",
+  "commands": {
+    "caseSensitive": false,
+    "cmtserver": ["cmt1", "cmt 1", "cmtserver"],
+    "cmtticket": ["cmt2", "cmt 2", "cmtticket"],
+    "list": ["cmts", "cmt list"],
+    "help": ["cmthelp", "cmt help"]
+  },
+
+  "_comment_autoRemoveOnLeave": "وقتی کسی از سرور خارج شود، رول CMT اش خودکار گرفته می‌شود. intervalSeconds بازه بررسی دوره‌ای است (0 = فقط موقع خروج).",
+  "autoRemoveOnLeave": {
+    "enabled": true,
+    "intervalSeconds": 60
+  },
+
+  "_comment_cooldown": "هر کاربر بعد از یک دستور، این تعداد ثانیه نمی‌تواند دستور بعدی بزند. جلوی اسپم کردن سرور را می‌گیرد.",
+  "cooldown": {
+    "enabled": true,
+    "seconds": 5,
+    "_comment_exemptCommands": "دستوراتی که کول‌داون ندارند (help چیزی از سرور نمی‌خواهد).",
+    "exemptCommands": ["help"],
+    "_comment_exemptGroups": "آی‌دی سرور گروپ‌هایی که کول‌داون برایشان اعمال نمی‌شود (مثلاً ادمین‌ها).",
+    "exemptGroups": [],
+    "_comment_warnOnce": "فقط یک بار پیام «صبر کنید» بدهد، نه به ازای هر اسپم.",
+    "warnOnce": true
+  },
+
+  "_comment_afk": "انتقال خودکار به چنل AFK. trigger: deaf (دفن) | mute (میوت میکروفون) | both. وقتی حالت برداشته شود به چنل قبلی برمی‌گردد.",
+  "afk": {
+    "enabled": true,
+    "channelId": 44,
+    "delaySeconds": 5,
+    "trigger": "deaf",
+    "returnWhenBack": true,
+    "pollSeconds": 2,
+    "_comment_ignoreGroups": "آی‌دی سرور گروپ‌هایی که هیچ‌وقت منتقل نمی‌شوند (مثلاً ادمین‌ها یا بات موزیک).",
+    "ignoreGroups": [],
+    "_comment_ignoreChannels": "آی‌دی چنل‌هایی که کسی از آن‌ها منتقل نمی‌شود.",
+    "ignoreChannels": []
+  },
+
+  "_comment_groups": "آی‌دی سرور گروپ‌ها (Server Group ID). موقع بالا آمدن بات، لیست کامل گروه‌ها در لاگ چاپ می‌شود.",
+  "groups": {
+    "cmtserver": 91,
+    "cmtticket": 92
+  },
+
+  "_comment_channels": "آی‌دی چنل‌هایی که اسمشان با لیست دارندگان رول به‌روز می‌شود. برای غیرفعال کردن، 0 بگذارید.",
+  "channels": {
+    "enabled": true,
+    "cmtserver": 86,
+    "cmtticket": 87,
+    "nameTemplate": {
+      "cmtserver": "[cspacer] CMT Server : {users}",
+      "cmtticket": "[cspacer] CMT Ticket : {users}"
+    },
+    "emptyText": "-",
+    "separator": ", ",
+    "maxNameLength": 40,
+    "updateOnStart": true,
+    "refreshIntervalSeconds": 0
+  },
+
+  "_comment_permissions": "کنترل اینکه چه کسی می‌تواند دستورات را اجرا کند.",
+  "permissions": {
+    "_comment_adminGroups": "آی‌دی سرور گروپ‌هایی که اجازه دارند رول را به دیگران بدهند/بگیرند. لیست خالی = همه مجازند.",
+    "adminGroups": [],
+    "_comment_allowedGroups": "آی‌دی سرور گروپ‌هایی که اجازه استفاده از دستورات را دارند. لیست خالی = همه مجازند.",
+    "allowedGroups": [],
+    "_comment_allowSelfAssign": "اگر false باشد، کاربر نمی‌تواند به خودش رول بدهد و فقط ادمین‌ها می‌توانند به دیگران بدهند.",
+    "allowSelfAssign": true
+  },
+
+  "_comment_messages": "متن پیام‌ها. {user} نام کاربر، {group} نام رول، {count} تعداد، {error} متن خطا.",
+  "messages": {
+    "added": "رول [b]{group}[/b] به [b]{user}[/b] داده شد.",
+    "removed": "رول [b]{group}[/b] از [b]{user}[/b] گرفته شد.",
+    "userNotFound": "کاربری با نام [b]{user}[/b] پیدا نشد.",
+    "multipleMatches": "چند کاربر با نام [b]{user}[/b] پیدا شد. نام دقیق‌تری بزنید: {list}",
+    "noPermission": "شما اجازه اجرای این دستور را ندارید.",
+    "noPermissionOther": "شما اجازه دادن/گرفتن رول برای کاربران دیگر را ندارید.",
+    "selfAssignDisabled": "دادن رول به خودتان غیرفعال است.",
+    "listHeader": "[b]لیست دارندگان رول‌ها[/b]",
+    "listEmpty": "کسی این رول را ندارد.",
+    "listGroupLine": "[b]{group}[/b] ({count})",
+    "groupNotConfigured": "آی‌دی رول [b]{cmd}[/b] در فایل کانفیگ تنظیم نشده است.",
+    "cooldown": "کمی صبر کنید — [b]{seconds}[/b] ثانیه دیگر دوباره امتحان کنید.",
+    "error": "خطا در اجرای دستور: {error}",
+    "help": "دستورات: {cmtserver} | {cmtticket} | {list}\nبدون نام کاربر = رول برای خودتان (اگر داشته باشید گرفته می‌شود).\nبا نام کاربر = رول برای آن کاربر."
+  },
+
+  "_comment_logging": "سطح لاگ: debug | info | error",
+  "logging": {
+    "level": "info"
+  }
+}

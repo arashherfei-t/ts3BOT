@@ -1,0 +1,11 @@
+{
+  "name": "cmt-teamspeak-bot",
+  "version": "1.0.0",
+  "description": "TeamSpeak 3 bot for CMT Server / CMT Ticket server group management",
+  "main": "bot.js",
+  "scripts": {
+    "start": "node bot.js"
+  },
+  "license": "MIT",
+  "private": true
+}
